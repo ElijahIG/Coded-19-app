@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sports Betting</title>
-  <div class="header pt-3 pl-3 bg-dark text-light">
-    <h1 class="text-center">Weather Dashboard</h1>
-    <div class="row mt-5 bg-light">
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body">
-            <form id="search-form">
-              <div class="form-group">
-                <label class="text-dark font-weight-bold" for="search-input">
-                  <h2>Search for a city:</h2>
-                </label>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="search-input" placeholder="e.g. Kalamazoo">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+  <head>
+    <meta charset="utf-8" />
+    <title>Single AJAX</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Coded-19</a>
       </div>
-    </div>
-  </div>
-</head>
-
-<body>
-  <h1>City Information</h1>
-  <div class="card weather-card outline-dark text-dark mb-3 mt-3">
-    <div class="card-body mt-2">
-      <h2 id="city-name" class="card-title h4">Choose City</h2>
-      <hr class="border-top border-light">
-      <div id="weather-icon"></div>
-      <p class="card-text">Current Temp (F): <span id="temp">-</span></p>
-      <p class="card-text">Wind: <span id="wind">-</span></p>
-      <p class="card-text">Humidity: <span id="humidity">-</span></p>
-    </div>
-  </div>
-</body>
-
+    </nav>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+      var queryURL = "https://api.covidtracking.com/v1/states/ca/current.json";
+      $.ajax({
+        url: queryURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
+      });
+      var queryURL = "https://api.covidtracking.com/v1/states/wa/current.json";
+      $.ajax({
+        url: queryURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
+      });
+    </script>
+  </body>
 </html>
