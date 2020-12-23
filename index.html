@@ -10,30 +10,47 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper teal lighten-2">
         <a href="#" class="brand-logo center">Coded-19</a>
       </div>
     </nav>
+    <form id="state-form">
+      <label for="state-input">Search for a State</label>
+      <input type="text" id="state-input" /><br />
+
+      <input id="find-state" type="submit" value="State Search" />
+    </form>
+
+    <pre id="state-view"></pre>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
+
     <script type="text/javascript">
-      // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
-      var queryURL = "https://api.covidtracking.com/v1/states/ca/current.json";
-      $.ajax({
-        url: queryURL,
-        method: "GET",
-      }).then(function (response) {
-        console.log(response);
-      });
-      var queryURL = "https://api.covidtracking.com/v1/states/wa/current.json";
-      $.ajax({
-        url: queryURL,
-        method: "GET",
-      }).then(function (response) {
-        console.log(response);
+      $("#find-state").on("click", function (event) {
+        event.preventDefault();
+
+        var state = $("#state-input").val();
+
+        var queryURL =
+          "https://api.covidtracking.com/v1/states/" + state + "/current.json";
+
+        // var queryURL = "https://api.covidtracking.com/v1/states/ca/current.json";
+        $.ajax({
+          url: queryURL,
+          method: "GET",
+        }).then(function (response) {
+          $("#state-view").text(JSON.stringify(response, null, 2));
+        });
+        // var queryURL = "https://api.covidtracking.com/v1/states/wa/current.json";
+        // $.ajax({
+        //   url: queryURL,
+        //   method: "GET",
+        // }).then(function (response) {
+        //   console.log(response);
       });
     </script>
   </body>
