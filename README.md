@@ -8,9 +8,13 @@ API: https://rapidapi.com/pillious/api/who-covid-19-data/endpoints
 Team Members: 
 
 Shane O’Connell
-Travis Ko 
+---------
+Travis Ko
+--------- 
 Elijah Davis
+---------
 Guled Ahmed
+---------
 
 Project Description:
 
