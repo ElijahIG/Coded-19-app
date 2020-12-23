@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Single AJAX</title>
+    <title>Skeleton HTML</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -10,48 +10,235 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper teal lighten-2">
+      <div class="nav-wrapper">
         <a href="#" class="brand-logo center">Coded-19</a>
       </div>
     </nav>
-    <form id="state-form">
-      <label for="state-input">Search for a State</label>
-      <input type="text" id="state-input" /><br />
-
-      <input id="find-state" type="submit" value="State Search" />
-    </form>
-
-    <pre id="state-view"></pre>
-
+    <!----------------- Page Layout here --------------------------->
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">QUICK HITS</span>
+            <p>POPULAR CITIES COVID INFO</p>
+          </div>
+          <div class="card-action">
+            <button href="#">San Diego</button>
+            <button href="#">New York</button>
+            <button href="#">Atlanta</button>
+            <button href="#">Portland</button>
+          </div>
+        </div>
+        <!-- <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">WEST REGION</span>
+            <p>WEST REGION COVID INFO</p>
+          </div>
+          <div class="card-action">
+            <button href="#">California</button>
+            <button href="#">Oregon</button>
+            <button href="#">Washington</button>
+            <button href="#">Nevada</button>
+            <button href="#">Utah</button>
+            <button href="#">Arizona</button>
+            <button href="#">New Mexico</button>
+            <button href="#">Colorado</button>
+            <button href="#">Wyoming</button>
+            <button href="#">Idaho</button>
+            <button href="#">Alaska</button>
+            <button href="#">Hawaii</button>
+          </div>
+        </div>
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">MIDWEST REGION</span>
+            <p>MIDWEST REGION COVID INFO</p>
+          </div>
+          <div class="card-action">
+            <button href="#">Nebraska</button>
+            <button href="#">Kansas</button>
+            <button href="#">Oklahoma</button>
+            <button href="#">Missouri</button>
+            <button href="#">Ohio</button>
+            <button href="#">Indiana</button>
+            <button href="#">Illinois</button>
+            <button href="#">Minnesota</button>
+            <button href="#">Wisconsin</button>
+            <button href="#">Michigan</button>
+            <button href="#">Iowa</button>
+            <button href="#">South Dakota</button>
+            <button href="#">North Dakota</button>
+          </div>
+        </div>
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">NORTHEAST REGION</span>
+            <p>NORTHEAST REGION COVID INFO</p>
+          </div>
+          <div class="card-action">
+            <button href="#">Maine</button>
+            <button href="#">Vermont</button>
+            <button href="#">New Hampshire</button>
+            <button href="#">Connecticut</button>
+            <button href="#">Rhode Island</button>
+            <button href="#">Massachusetts</button>
+            <button href="#">New York</button>
+            <button href="#">Pennsylvania</button>
+            <button href="#">New Jersey</button>
+            <button href="#">Delaware</button>
+            <button href="#"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">SOUTH REGION</span>
+            <p>SOUTH REGION COVID INFO</p>
+          </div>
+          <div class="card-action">
+            <button href="#">Louisiana</button>
+            <button href="#"></button>
+            <button href="#">Atlanta</button>
+            <button href="#">Portland</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+            <label for="disabled">Disabled</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            This is an inline input field:
+            <div class="input-field inline">
+              <input id="email_inline" type="email" class="validate">
+              <label for="email_inline">Email</label>
+              <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+                        <h2 class="card-title h4">Cities</h2>
+                        <h3 class="card-subtitle h6 font-weight-normal mb-3 text-muted">Click on a city to view the weather</h3>
+                        <button data-city="Austin" class="city btn btn-outline-dark btn-block">
+                            Austin
+                        </button>
+                        <button data-city="Chicago" class="city btn btn-outline-dark btn-block">
+                            Chicago
+                        </button>
+                        <button data-city="New York" class="city btn btn-outline-dark btn-block">
+                            New York
+                        </button>
+                        <button data-city="Orlando" class="city btn btn-outline-dark btn-block">
+                            Orlando
+                        </button>
+                        <button data-city="San Francisco" class="city btn btn-outline-dark btn-block">
+                            San Francisco
+                        </button>
+                        <button data-city="Seattle" class="city btn btn-outline-dark btn-block">
+                            Seattle
+                        </button>
+                        <button data-city="Denver" class="city btn btn-outline-dark btn-block">
+                            Denver
+                        </button>
+                        <button data-city="Atlanta" class="city btn btn-outline-dark btn-block">
+                            Atlanta
+                        </button>
+                        <hr>
+                  </div>
+                  </div>
+              </div> 
+                    <!-- Search navigation panel
+                      This content will be:
+                      3-columns-wide on large screens,
+                      4-columns-wide on medium screens,
+                      12-columns-wide on small screens  -->
+                    <!-- Dropdown Trigger -->
+        <a class='dropdown-trigger waves-light btn' href='#' data-target='dropdown1'>Drop Me!
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!">three</a></li>
+            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+          </ul>
+        </a>
+        <!-------------- Dropdown Structure --------------------------->
+        <!----------------- JQUERY DROPDOWN TRIGGER --------------------->
+        <script> $('.dropdown-trigger').dropdown(); </script>
+      </div>
+    </div>
+      <div class="col s12 m8 l8"> 
+        <!-- Display Results content
+              This content will be:
+          9-columns-wide on large screens,
+          8-columns-wide on medium screens,
+          12-columns-wide on small screens  -->
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-
     <script type="text/javascript">
-      $("#find-state").on("click", function (event) {
-        event.preventDefault();
-
-        var state = $("#state-input").val();
-
-        var queryURL =
-          "https://api.covidtracking.com/v1/states/" + state + "/current.json";
-
-        // var queryURL = "https://api.covidtracking.com/v1/states/ca/current.json";
-        $.ajax({
-          url: queryURL,
-          method: "GET",
-        }).then(function (response) {
-          $("#state-view").text(JSON.stringify(response, null, 2));
-        });
-        // var queryURL = "https://api.covidtracking.com/v1/states/wa/current.json";
-        // $.ajax({
-        //   url: queryURL,
-        //   method: "GET",
-        // }).then(function (response) {
-        //   console.log(response);
+      // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+      var queryURL = "https://api.covidtracking.com/v1/states/ca/current.json";
+      $.ajax({
+        url: queryURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
+      });
+      var queryURL = "https://api.covidtracking.com/v1/states/wa/current.json";
+      $.ajax({
+        url: queryURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
       });
     </script>
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+    <script src="script.js"></script>
   </body>
 </html>
+
+
+
+
+
