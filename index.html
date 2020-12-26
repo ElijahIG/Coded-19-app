@@ -12,6 +12,10 @@
         margin: 0.5em 0;
         width: 100%;
       }
+      .cardHeader {
+        border: solid 1px;
+        margin: .5em 0;
+      }
     </style>
   </head>
   <body>
@@ -71,12 +75,15 @@
 
         <div class="col s12 m8 l8">
               <!----------- COIVD API DUMP ---------->
-              
+
           <div class="card blue-grey darken-1" id="covidResults">
             <div class="card-content white-text">
-              <span class="card-title"></span>
+              <span class="card-title">COVID-19 INFO</span>
               <p>
-                This is where we will display COVID API INFO
+                <h5 class="hospCurrent">Hospitalized Currently: </h3><hr>
+                <h5 class="hospIncrease">Hospitalized Increase: </h3><hr>
+                <h5 class="deathTotal">Deaths: </h3><hr>
+                <h5 class="deathIncrease">Deaths Increase: </h3><hr>
               </p>
             </div>
             <div class="card-action">
@@ -86,24 +93,43 @@
           </div>
                 <!----------- NYT API DUMP ------------->
 
-          <div class="card blue-grey darken-1" id="nytResults">
-            <div class="card-content white-text">
-              <span class="card-title"></span>
-              <p>
-                This is where we will display NYT API INFO
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="https://apnews.com/hub/coronavirus-pandemic">Associated Press Covid-19 Coverage</a><hr>
-              <a href="https://graphics.reuters.com/world-coronavirus-tracker-and-maps/">Reuters Covid-19 Tracker</a>
+            
+          <h5 class="header cardHeader" id="nytOne">NYT ARTICLE #1</h5>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
             </div>
           </div>
+          <h5 class="header cardHeader" id="nytTwo">NYT ARTICLE #2</h5>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div>
+          <h5 class="header cardHeader" id="nytThree">NYT ARTICLE #3</h5>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div>   
         </div>
-        
       </div>
-
-        
-     
+    
     </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
