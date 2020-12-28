@@ -20,6 +20,9 @@
         font-size: 18px;
         font-weight: bold;
       }
+      .timesSearch {
+      padding: .4em;
+    }
     </style>
   </head>
   <body>
@@ -81,49 +84,99 @@
 
           <div class="card blue-grey darken-1" id="covidResults"></div>
           <!----------- NYT API DUMP ------------->
+          <title>New York Times Search</title>
+        
+        <!-- Style to fix the issue of text extending past card length -->
+        <style>
+          .card-body a {
+            word-break: break-all;
+          }
 
-          <h5 class="header cardHeader" id="nytOne">NYT ARTICLE #1</h5>
-          <div class="card horizontal">
-            <div class="card-stacked">
-              <div class="card-content">
-                <p>
-                  I am a very simple card. I am good at containing small bits of
-                  information.
-                </p>
+          .articleHeadline {
+            line-height: 1.5;
+          }
+        </style>
+        
+          <div class="card-action m4 l4">
+            <!-- Card for the search -->
+            <div class="card" style="background-color: #20315a; color: white;">
+              <h1 class="text-center">
+                <strong>
+                  <i class="timesSearch fa fa-newspaper-o"></i> New York Times Search</strong>
+              </h1>
+            </div>
+
+            <!-- Row for Searching New York Times -->
+            <div class="row">
+              <div class="col-sm-12 m4">
+                <br />
+                <!-- First card is for handling the search parameters -->
+                <div class="timesSearch card">
+
+                  <div class="card-body">
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form role="form">
+                      <!-- Here we create the text box for capturing the search term-->
+                      <div class="form-group">
+                        <label for="search">Search Term:</label>
+                        <input type="text" class="form-control" id="search-term" />
+                      </div>
+
+                      <!-- Retrieves 5 records-->
+                      <div class="form-group">
+                        <label for="pwd">Search:</label>
+                        <select id="article-count">
+                          <!-- Setting the option for 5 as default -->
+                          <option value="5" selected>5</option>                         
+                        </select>
+                      </div>
+
+
+                      <!-- Here we have our final search button -->
+                      <button type="submit" class="btn btn-default" id="run-search">
+                        <i class="fa fa-search"></i> Search
+                      </button>
+                      <button class="btn btn-default" id="clear-all">
+                        <i class="fa fa-trash"></i> Clear Results
+                      </button>
+                    </form>
+                  </div>
+                </div>
               </div>
-              <div class="infoLink card-action">
-                <a href="#">This is a link</a>
+            </div>
+
+            <!-- This row will handle all of the retrieved articles -->
+            <div class="row">
+              <div class="col-sm-12">
+                <br />
+
+                <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
+                <div class="card">
+                  <!-- card Heading for the retrieved articles box -->
+                  <div class="card-header">
+                    <strong> <i class="timesSearch strong fa fa-table"></i> Top Articles</strong>
+                  </div>
+
+                  <!-- This main card will hold each of the resulting articles -->
+                  <div class="card-body" id="article-section"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Region -->
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- Line Break followed by closing -->
+                <hr />
+                
               </div>
             </div>
           </div>
-          <h5 class="header cardHeader" id="nytTwo">NYT ARTICLE #2</h5>
-          <div class="card horizontal">
-            <div class="card-stacked">
-              <div class="card-content">
-                <p>
-                  I am a very simple card. I am good at containing small bits of
-                  information.
-                </p>
-              </div>
-              <div class="infoLink card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </div>
-          </div>
-          <h5 class="header cardHeader" id="nytThree">NYT ARTICLE #3</h5>
-          <div class="card horizontal">
-            <div class="card-stacked">
-              <div class="card-content">
-                <p>
-                  I am a very simple card. I am good at containing small bits of
-                  information.
-                </p>
-              </div>
-              <div class="infoLink card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </div>
-          </div>
+      </div>
+
+          
+          
+          
         </div>
       </div>
     </div>
