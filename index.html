@@ -12,6 +12,14 @@
         margin: 0.5em 0;
         width: 100%;
       }
+      .cardHeader {
+        border: solid 1px;
+        margin: 0.5em 0;
+      }
+      .infoLink {
+        font-size: 18px;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -30,37 +38,37 @@
           </div>
           <div class="card-action">
             <button
-              data-state="California"
+              data-state="ca"
               class="stateBtn waves-effect waves-light btn"
             >
               California
             </button>
             <button
-              data-state="Washington"
+              data-state="wa"
               class="stateBtn waves-effect waves-light btn"
             >
               Washington
             </button>
             <button
-              data-state="Oregon"
+              data-state="or"
               class="stateBtn waves-effect waves-light btn"
             >
               Oregon
             </button>
             <button
-              data-state="Nevada"
+              data-state="nv"
               class="stateBtn waves-effect waves-light btn"
             >
               Nevada
             </button>
             <button
-              data-state="Arizona"
+              data-state="az"
               class="stateBtn waves-effect waves-light btn"
             >
               Arizona
             </button>
             <button
-              data-state="Colorado"
+              data-state="co"
               class="stateBtn waves-effect waves-light btn"
             >
               Colorado
@@ -68,32 +76,90 @@
           </div>
         </div>
 
-
         <div class="col s12 m8 l8">
-          <div class="card blue-grey darken-1" id="covidResults">
-            <div class="card-content white-text">
-              <span class="card-title"></span>
-              <p>
-                I am a very simple card. I am good at containing small bits of
-                information. I am convenient because I require little markup to
-                use effectively.
-              </p>
+          <!----------- COIVD API DUMP ---------->
+
+          <div class="card blue-grey darken-1" id="covidResults"></div>
+          <!----------- NYT API DUMP ------------->
+
+          <h5 class="header cardHeader" id="nytOne">NYT ARTICLE #1</h5>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>
+                  I am a very simple card. I am good at containing small bits of
+                  information.
+                </p>
+              </div>
+              <div class="infoLink card-action">
+                <a href="#">This is a link</a>
+              </div>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
+          </div>
+          <h5 class="header cardHeader" id="nytTwo">NYT ARTICLE #2</h5>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>
+                  I am a very simple card. I am good at containing small bits of
+                  information.
+                </p>
+              </div>
+              <div class="infoLink card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div>
+          <h5 class="header cardHeader" id="nytThree">NYT ARTICLE #3</h5>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>
+                  I am a very simple card. I am good at containing small bits of
+                  information.
+                </p>
+              </div>
+              <div class="infoLink card-action">
+                <a href="#">This is a link</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-        <!------MUST CREATE DISPLAY RESULTS SPACE FOR NEW YORK TIMES API---- -->
-
-
-
-
-        <!-- ---------------------------------------------------------------- -->
-     
+    </div>
+    <form role="form">
+      <div class="form-group">
+        <label for="search">Search Term:</label>
+        <input type="text" class="form-control" id="search-term" />
+      </div>
+      <div class="form-group">
+        <label for="pwd">Number of Articles to Retrieve:</label>
+        <select
+          id="article-count"
+          class="custom-select"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <option selected value="1">1</option>
+          <option value="5" selected>5</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default" id="run-search">
+        <i class="fa fa-search"></i> Search
+      </button>
+      <button class="btn btn-default" id="clear-all">
+        <i class="fa fa-trash"></i> Clear Results
+      </button>
+    </form>
+    <div class="row">
+      <div class="col-sm-12">
+        <br />
+        <div class="card">
+          <div class="card-header">
+            <strong> <i class="fa fa-table"></i> Top Articles</strong>
+          </div>
+          <div class="card-body" id="article-section"></div>
+        </div>
+      </div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -101,5 +167,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="script.js"></script>
+    <script src="nyt.js"></script>
   </body>
 </html>
