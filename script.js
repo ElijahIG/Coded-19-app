@@ -100,16 +100,26 @@ function updatePage(NYTData) {
       $articleListItem.append("<h6>" + byline.original + "</h6>");
     }
 
+    var leadParagraph = article.lead_paragraph;
+    if (leadParagraph && article.lead_paragraph) {
+      $articleListItem.append("<h6><strong>Lead Paragraph:</strong> " + article.lead_paragraph + "</h6>");
+
+    }
+    var snippet = article.snippet;
+    if (snippet) {
+      $articleListItem.append("<h6><strong>Snippet:</strong> " + article.snippet + "</h6>");
+    }
+
     // Log section, and append to document if exists
     var section = article.section_name;
     if (section) {
-      $articleListItem.append("<h6>Section: " + section + "</h6>");
+      $articleListItem.append("<h6><strong>Section:</strong> " + section + "</h6>");
     }
 
     // Log published date, and append to document if exists
     var pubDate = article.pub_date;
     if (pubDate) {
-      $articleListItem.append("<h6>" + article.pub_date + "</h6>");
+      $articleListItem.append("<h6><strong>Publish Date:</strong> " + article.pub_date + "</h6>");
     }
 
     // Append and log url
