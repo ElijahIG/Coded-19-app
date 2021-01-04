@@ -5,9 +5,11 @@ function stateInfo(state) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
-    // Creating a div to hold the movie
+    
+    // Creating an object for Covid results
     var results = $("#covidResults");
+
+    // Creating a card for all the results, setting h5 rows for each pulled detail of covid information
     results.html(`  <div class="card-content white-text">
     <span class="card-title">COVID-19 INFO for ${localStorage
       .getItem("lastState")
@@ -25,16 +27,21 @@ function stateInfo(state) {
       }</h3><hr>
     </p>
   </div>
+
+
   <div class="infoLink card-action">
     <a href="https://graphics.reuters.com/world-coronavirus-tracker-and-maps/">Reuters Covid Map</a><hr>
     <a href="https://www.naccho.org/membership/lhd-directory">National Association of County and City Health Officials (NACCHO)</a>
   </div>`);
   });
 }
-
+// Create an event function for locally storing all the displayed state info
 function displayStateInfo(event) {
+
+  // Prevent default action on browser
   event.preventDefault();
-  // var state = $(this).attr("data-name");
+
+  // Creating variable for state data and appending to local storage
   var state = $(event.target).data("state");
   localStorage.setItem("lastState", state);
 
@@ -42,28 +49,23 @@ function displayStateInfo(event) {
 }
 
 function buildQueryURL() {
-  // queryURL is the url we'll use to query the API
+  // Using queryURL to query API
   var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
 
-  // Begin building an object to contain our API call's query parameters
-  // Set the API key
+  // Building an object to contain API call's query parameters and setting API key
   var queryParams = { "api-key": "R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M" };
 
   // Grab text the user typed into the search input, add to the queryParams object
   queryParams.q = $("#search-term").val().trim();
 
-  // Logging the URL so we have access to it for troubleshooting
-  console.log("---------------\nURL: " + queryURL + "\n---------------");
-  console.log(queryURL + $.param(queryParams));
+  // Returning the query
   return queryURL + $.param(queryParams);
 }
 
-/**
- * takes API data (JSON/object) and turns it into elements on the page
- */
+// Creating function for API data (JSON/Object), turning it into elements on page
 function updatePage(NYTData) {
-  // Get from the form the number of results to display, set limit
 
+  // Get from the form the number of results to display, set limit
   var numArticles = $("#article-count").val();
 
   // Loop through and build elements for the defined number of articles
@@ -111,6 +113,8 @@ function updatePage(NYTData) {
           "</h6>"
       );
     }
+
+    // Log snippet and append to document
     var snippet = article.snippet;
     if (snippet) {
       $articleListItem.append(
@@ -126,7 +130,7 @@ function updatePage(NYTData) {
       );
     }
 
-    // Log published date, and append to document if exists
+    // Log published date, ""
     var pubDate = article.pub_date;
     if (pubDate) {
       $articleListItem.append(
@@ -153,8 +157,6 @@ if (localStorage.getItem("lastState") === null) {
   localStorage.setItem("lastState", "ca");
 }
 
-// CLICK HANDLERS
-// ==========================================================
 
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
@@ -167,8 +169,7 @@ $("#run-search").on("click", function (event) {
   // Build the query URL for the ajax request to the NYT API
   var queryURL = buildQueryURL();
 
-  // Make the AJAX request to the API - GETs the JSON data at the queryURL.
-  // The data then gets passed as an argument to the updatePage function
+  // Creating the AJAX request to API getting JSON data at queryURL, create Ajax for passing data to updatePage function
   $.ajax({
     url: queryURL,
     method: "GET",
