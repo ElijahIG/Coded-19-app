@@ -1,13 +1,11 @@
 function buildQueryURL() {
-    
+
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
   
     var queryParams = { "api-key": "R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M" };
   
     queryParams.q = $("#search-term").val().trim();
   
-    console.log("---------------\nURL: " + queryURL + "\n---------------");
-    console.log(queryURL + $.param(queryParams));
     return queryURL + $.param(queryParams);
   }
   
@@ -54,6 +52,7 @@ function buildQueryURL() {
             "</h6>"
         );
       }
+  
       var snippet = article.snippet;
       if (snippet) {
         $articleListItem.append(
@@ -82,9 +81,8 @@ function buildQueryURL() {
       $articleList.append($articleListItem);
     }
   }
-  
-  $("#run-search").on("click", function (event) {
 
+$("#run-search").on("click", function (event) {
     event.preventDefault();
   
     clear();
@@ -96,3 +94,4 @@ function buildQueryURL() {
       method: "GET",
     }).then(updatePage);
   });
+  
