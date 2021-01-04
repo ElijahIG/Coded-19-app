@@ -5,7 +5,6 @@ function stateInfo(state) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    
     // Creating an object for Covid results
     var results = $("#covidResults");
 
@@ -37,7 +36,6 @@ function stateInfo(state) {
 }
 // Create an event function for locally storing all the displayed state info
 function displayStateInfo(event) {
-
   // Prevent default action on browser
   event.preventDefault();
 
@@ -56,9 +54,6 @@ function clear() {
 if (localStorage.getItem("lastState") === null) {
   localStorage.setItem("lastState", "ca");
 }
-
-//  .on("click") function associated with the clear button
-$("#clear-all").on("click", clear);
 
 $(".stateBtn").on("click", displayStateInfo);
 stateInfo(localStorage.getItem("lastState"));
