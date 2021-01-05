@@ -8,6 +8,8 @@ function buildQueryURL() {
   // Grab text the user typed into the search input, add to the queryParams object
   queryParams.q = $("#search-term").val().trim();
 
+  localStorage.setItem("lastNYTSearch", queryParams.q);
+
   // Returning the query
   return queryURL + $.param(queryParams);
 }
@@ -15,7 +17,7 @@ function buildQueryURL() {
 // Creating function for API data (JSON/Object), turning it into elements on page
 function updatePage(NYTData) {
   // Get from the form the number of results to display, set limit
-  var numArticles = $("#article-count").val();
+  var numArticles = NYTData.response.docs.length;
 
   // Loop through and build elements for the defined number of articles
   for (var i = 0; i < numArticles; i++) {
@@ -97,6 +99,28 @@ function updatePage(NYTData) {
   }
 }
 
+function displayLastSearch () {
+
+  var searchTimes = localStorage.getItem("lastNYTSearch");
+  
+  if (searchTimes !== null) {
+  
+      var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+  
+      var queryParams = { "api-key": "R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M" };
+    
+      queryParams.q = searchTimes;
+    
+     queryURL = queryURL + $.param(queryParams);
+  
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(updatePage);
+  
+  }
+}
+
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
   // (in addition to clicks). Prevents the page from reloading on form submit.
@@ -115,10 +139,4 @@ $("#run-search").on("click", function (event) {
   }).then(updatePage);
 });
 
-// Function to empty out the articles
-function clear() {
-  $("#article-section").empty();
-}
-
-//  .on("click") function associated with the clear button
-$("#clear-all").on("click", clear);
+displayLastSearch();
